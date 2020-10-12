@@ -1,3 +1,17 @@
+input, textarea {
+    overflow: visible;
+    border-radius: 0;
+    border: 1px solid lightgrey;
+    padding: 4px;
+    outline: none;
+}
+
+button {
+    border-radius: 0;
+    padding: 8px;
+    text-transform: uppercase;
+}
+
 .m-form{
     
     &__inputGroup{

@@ -8,6 +8,7 @@ const ContactPage = ({ data, location }) => {
 
   const [values, setValues] = useState({name: '', email: '', telefono: '', info: 0})
   const siteTitle = data.site.siteMetadata.title
+  const contactText = data.site.siteMetadata.textContents.contactText
   
   const handleInputChange = e => {
     const {name, value} = e.target
@@ -27,7 +28,7 @@ const ContactPage = ({ data, location }) => {
   
   return (
     <PageLayout location={location} title={siteTitle}>
-      <p>Send a pidgeon.</p>
+      <p>{contactText}</p>
 
       <form onSubmit={handleSubmit}>
         <div className="m-form__inputGroup">
@@ -49,7 +50,7 @@ const ContactPage = ({ data, location }) => {
           </div>
         </div>
         <div className="m-form__buttonGroup">
-          <input type="submit" value="Submit" />
+          <button type="submit" value="Submit">Contatta</button>
         </div>
       </form>
       <Bio />
@@ -62,6 +63,9 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        textContents {
+          contactText
+        }
       }
     }
   }
