@@ -6,10 +6,24 @@ module.exports = {
       summary: `Thanks to Kyle Mathews for the perfect example of Gatsby blog.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    siteUrl: `https://romantic-lamport-24f07e.netlify.app/`,
     social: {
       twitter: `telefonosuci`,
     },
+    menuLinks: [
+      {
+        name: "home",
+        href: "/",
+      },
+      {
+        name: "About me",
+        href: "/about-me",
+      },
+      {
+        name: "Contact",
+        href: "/contact",
+      },
+    ],
   },
   plugins: [
     {
@@ -73,5 +87,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `gatsby-plugin-sass`,
   ],
 }

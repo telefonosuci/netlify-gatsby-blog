@@ -2,11 +2,14 @@
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import PageLayout from "../components/page-layout"
 import SEO from "../components/seo"
 
 type DataProps = {
   site: {
+    siteMetadata: {
+      title: string
+    },
     buildTime: string
   }
 }
@@ -16,13 +19,10 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
   path,
   location,
 }) => (
-  <Layout title="Using TypeScript" location={location}>
-    <SEO title="Using TypeScript" />
-    <h1>Gatsby supports TypeScript by default!</h1>
+  <PageLayout title={data.site.siteMetadata.title} location={location}>
+    <SEO title="About me" />
     <p>
-      This means that you can create and write <em>.ts/.tsx</em> files for your
-      pages, components etc. Please note that the <em>gatsby-*.js</em> files
-      (like gatsby-node.js) currently don't support TypeScript yet.
+      Sono da diversi anni nel settore della consulenza inforamtica. Un lavoro che faccio con molta passione.
     </p>
     <p>
       For type checking you'll want to install <em>typescript</em> via npm and
@@ -40,7 +40,7 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
       .
     </p>
     <Link to="/">Go back to the homepage</Link>
-  </Layout>
+  </PageLayout>
 )
 
 export default UsingTypescript
@@ -48,6 +48,9 @@ export default UsingTypescript
 export const query = graphql`
   {
     site {
+      siteMetadata {
+        title
+      }
       buildTime(formatString: "YYYY-MM-DD hh:mm a z")
     }
   }

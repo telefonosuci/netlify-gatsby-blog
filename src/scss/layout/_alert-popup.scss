@@ -1,0 +1,13 @@
+.o-alertPopup {
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid black;
+    width: 100%;
+    background-color: lightgray;
+
+    &__textContainer {
+        margin: 10px 0;
+    }
+}
