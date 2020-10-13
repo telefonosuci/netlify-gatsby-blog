@@ -21,6 +21,19 @@ const ContactPage = ({ data, location }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    
+    console.log('Tracking custom event')
+    
+    trackCustomEvent({
+      // string - required - The object that was interacted with (e.g.video)
+      category: "contact-form",
+      // string - required - Type of interaction (e.g. 'play')
+      action: "submit",
+      // string - optional - Useful for categorizing events (e.g. 'Spring Campaign')
+      label: "Contact funnel",
+      // number - optional - Numeric value associated with the event. (e.g. A product ID)
+      value: 48
+    })
     const jsonBody = { data: values }
     axios.post(`https://xfjbmfmkwzhddmf.form.io/contact/submission`, jsonBody)
       .then(res => {
@@ -28,20 +41,6 @@ const ContactPage = ({ data, location }) => {
         console.log(res.data);
       })
   }
-
-  useEffect(() => {
-    console.log('Tracking custom event')
-    trackCustomEvent({
-      // string - required - The object that was interacted with (e.g.video)
-      category: "Page Contact",
-      // string - required - Type of interaction (e.g. 'play')
-      action: "View",
-      // string - optional - Useful for categorizing events (e.g. 'Spring Campaign')
-      label: "Gatsby Plugin Example Campaign",
-      // number - optional - Numeric value associated with the event. (e.g. A product ID)
-      value: 48
-    })
-  });
   
   return (
     <PageLayout location={location} title={siteTitle}>
