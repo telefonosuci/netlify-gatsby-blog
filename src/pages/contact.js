@@ -28,6 +28,7 @@ const ContactPage = ({ data, location }) => {
   
   return (
     <PageLayout location={location} title={siteTitle}>
+      <SEO title="Contact" />
       <p>{contactText}</p>
 
       <form onSubmit={handleSubmit}>
