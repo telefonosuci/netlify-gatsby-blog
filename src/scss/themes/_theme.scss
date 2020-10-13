@@ -5,3 +5,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+
+.layoutContent {
+    backdrop-filter: blur(16px);
+    padding: 24px;
+}

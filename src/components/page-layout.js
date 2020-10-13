@@ -24,13 +24,15 @@ const PageLayout = ({ location, title, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <Header location={location} title={title}/>
-      <main className="o-globalContent">{children}</main>
-      <footer className="o-globalFooter">
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a> 
-      </footer>
+      <div className="layoutContent">
+        <Header location={location} title={title}/>
+        <main className="o-globalContent">{children}</main>
+        <footer className="o-globalFooter">
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a> 
+        </footer>
+      </div>
       <AlertPopup>
         Questo sito utilizza i cookie per personalizzare contenuti ed annunci, per fornire funzionalità dei social media e per analizzare il nostro traffico. 
         Condividiamo inoltre informazioni sul modo in cui utilizza il nostro sito con i nostri partner che si occupano di analisi dei dati web, pubblicità e social media, i quali potrebbero combinarle con altre informazioni che ha fornito loro o che hanno raccolto dal suo utilizzo dei loro servizi. 
