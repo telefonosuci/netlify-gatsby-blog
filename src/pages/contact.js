@@ -1,9 +1,11 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import axios from 'axios';
 
 import PageLayout from "../components/page-layout"
 import Bio from "../components/bio"
+import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
+
 const ContactPage = ({ data, location }) => {
 
   const [values, setValues] = useState({name: '', email: '', telefono: '', info: 0})
@@ -25,6 +27,20 @@ const ContactPage = ({ data, location }) => {
         console.log(res.data);
       })
   }
+
+  useEffect(() => {
+    console.log('Tracking custom event')
+    trackCustomEvent({
+      // string - required - The object that was interacted with (e.g.video)
+      category: "Page Contact",
+      // string - required - Type of interaction (e.g. 'play')
+      action: "View",
+      // string - optional - Useful for categorizing events (e.g. 'Spring Campaign')
+      label: "Gatsby Plugin Example Campaign",
+      // number - optional - Numeric value associated with the event. (e.g. A product ID)
+      value: 48
+    })
+  });
   
   return (
     <PageLayout location={location} title={siteTitle}>
