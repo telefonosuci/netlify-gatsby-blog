@@ -5,6 +5,7 @@ import axios from 'axios';
 import PageLayout from "../components/page-layout"
 import Bio from "../components/bio"
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
+import SEO from "../components/seo"
 
 const ContactPage = ({ data, location }) => {
 
@@ -50,20 +51,20 @@ const ContactPage = ({ data, location }) => {
       <form onSubmit={handleSubmit}>
         <div className="m-form__inputGroup">
           <div className="m-form__input">
-            <label>Nome:</label>
-            <input type="text" name="nome" onChange={handleInputChange} />
+            <label htmlFor="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" onChange={handleInputChange} />
           </div>
           <div className="m-form__input">
-            <label>Email: </label>
-            <input type="text" name="email" onChange={handleInputChange} />
+            <label htmlFor="email">Email: </label>
+            <input type="text" id="email" name="email" onChange={handleInputChange} />
           </div>
           <div className="m-form__input">
-            <label>Telefono:</label>
-            <input type="text" name="telefono" onChange={handleInputChange} />
+            <label htmlFor="telefono">Telefono:</label>
+            <input type="text" id="telefono" name="telefono" onChange={handleInputChange} />
           </div>
           <div className="m-form__input">
-            <label>Info: </label>
-            <textarea name="info" onChange={handleInputChange} />
+            <label htmlFor="info">Info: </label>
+            <textarea id="info" name="info" onChange={handleInputChange} />
           </div>
         </div>
         <div className="m-form__buttonGroup">
