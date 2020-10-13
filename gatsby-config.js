@@ -3,7 +3,7 @@ module.exports = {
     title: `SUCI's Blog`,
     author: {
       name: `SUCI`,
-      summary: `Thanks to Kyle Mathews for the perfect example of Gatsby blog.`,
+      summary: `Passionate developer with love for challenges.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://romantic-lamport-24f07e.netlify.app/`,

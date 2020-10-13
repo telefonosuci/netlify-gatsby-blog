@@ -31,5 +31,11 @@ button {
         & textarea {
             resize: none;
         }
+    } 
+
+    &__inputError {
+        display: flex;
+        flex-direction: column;
+        height: 12px;
     }   
 }
