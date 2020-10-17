@@ -6,7 +6,7 @@ module.exports = {
       summary: `Passionate developer with love for challenges.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://romantic-lamport-24f07e.netlify.app/`,
+    siteUrl: `https://webar-tisan.netlify.app/`,
     social: {
       twitter: `telefonosuci`,
     },

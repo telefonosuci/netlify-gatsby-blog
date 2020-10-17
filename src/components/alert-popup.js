@@ -13,7 +13,7 @@ const AlertPopup = ({ visible, callback, children }) => {
                 <header></header>
                 <main>
                     <div className="o-alertPopup__textContainer">
-                        <p className="o-alertPopup__text">{children} <a onClick={close}>Chiudi</a></p>
+                        <p className="o-alertPopup__text">{children} <a className="o-alertPopup__close" onClick={close}>Chiudi</a></p>
                     </div>
                 </main>
             </div>

@@ -22,23 +22,10 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
   <PageLayout title={data.site.siteMetadata.title} location={location}>
     <SEO title="About me" />
     <p>
-      Sono da diversi anni nel settore della consulenza inforamtica. Un lavoro che faccio con molta passione.
+      Sono da diversi anni nel settore della consulenza inforamtica, lavorando nello specifico come <em>System Integrator</em>, realizzando integrazioni di sistemi ecommerce, CRM, ERP.
     </p>
-    <p>
-      For type checking you'll want to install <em>typescript</em> via npm and
-      run <em>tsc --init</em> to create a <em>.tsconfig</em> file.
-    </p>
-    <p>
-      You're currently on the page "{path}" which was built on{" "}
-      {data.site.buildTime}.
-    </p>
-    <p>
-      To learn more, head over to our{" "}
-      <a href="https://www.gatsbyjs.com/docs/typescript/">
-        documentation about TypeScript
-      </a>
-      .
-    </p>
+    <p>Durante questi anni ho lavorato con vari prodotti: SAP, Alfresco, Liferay, Salesforce.</p>
+    <p>Da qualche anno mi sono avvcinato allo sviluppo front-end realizzando applicazioni web con l'utilizzo degli ultimi tools e framework di ultima generazione.</p>
     <Link to="/">Go back to the homepage</Link>
   </PageLayout>
 )
