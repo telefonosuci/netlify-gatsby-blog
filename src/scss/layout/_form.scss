@@ -1,9 +1,12 @@
 input, textarea {
     overflow: visible;
     border-radius: 0;
-    border: 1px solid lightgrey;
-    padding: 4px;
+    border: none;
+    /* border-bottom: 5px solid skyblue; */
+    padding: 12px;
     outline: none;
+    border-radius: 6px;
+    margin: 8px 0;
 }
 
 button {
@@ -24,12 +27,16 @@ button {
         margin: 10px 0;
     }
 
-    &__input{
+    &__input {
         display: flex;
         flex-direction: column;
         margin: 10px 0;
-        & textarea {
+        textarea {
             resize: none;
+        }
+
+        label {
+            font-weight: bold;
         }
     } 
 
@@ -37,5 +44,6 @@ button {
         display: flex;
         flex-direction: column;
         height: 12px;
+        color: #A52A2A;
     }   
 }

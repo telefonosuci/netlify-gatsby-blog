@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 
-const AlertPopup = ({ children }) => {
-    const [showPopup, setShowPopup] = useState(true)
-    const close = () => setShowPopup(false)
+const AlertPopup = ({ visible, callback, children }) => {
+    const [showPopup, setShowPopup] = useState(visible)
+    const close = () => {
+        callback()
+        setShowPopup(false)
+    }
 
     if(showPopup){
         return (
