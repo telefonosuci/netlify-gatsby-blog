@@ -11,7 +11,7 @@ const ContactPage = ({ data, location }) => {
 
   const siteTitle = data.site.siteMetadata.title
   const contactText = data.site.siteMetadata.textContents.contactText
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const [modalIsVisible, setModalIsVisible] = useState(false);
   
   const submitContact = data => {
@@ -29,11 +29,7 @@ const ContactPage = ({ data, location }) => {
     })
     const jsonBody = { data }
     setModalIsVisible(true)
-    
-    /*
-    setTimeout(() =>{
-      setModalIsVisible(false)
-    }, 3000)*/
+
     
     axios.post(`https://xfjbmfmkwzhddmf.form.io/contact/submission`, jsonBody).then(res => {
       console.log(res);

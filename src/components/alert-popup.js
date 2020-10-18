@@ -13,7 +13,7 @@ const AlertPopup = ({ visible, callback, children }) => {
                 <header></header>
                 <main>
                     <div className="o-alertPopup__textContainer">
-                        <p className="o-alertPopup__text">{children} <a className="o-alertPopup__close" onClick={close}>Chiudi</a></p>
+                        <p className="o-alertPopup__text">{children} <button className="t-webar__linkButton" onClick={close}>Chiudi</button></p>
                     </div>
                 </main>
             </div>

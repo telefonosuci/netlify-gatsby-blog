@@ -1,38 +1,46 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import PageLayout from "../components/page-layout"
 import SEO from "../components/seo"
+import Moment from 'react-moment';
+
+// import createClient directly
+import {createClient} from 'contentful'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const [ contentfulPosts, setContentfulPosts ] = useState([])
 
-  if (posts.length === 0) {
-    return (
-      <PageLayout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </PageLayout>
-    )
-  }
+  useEffect(() => {
+    var client = createClient({
+      // This is the space ID. A space is like a project folder in Contentful terms
+      space: process.env.CONTENTFUL_SITE_ID,
+      // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    })
+
+    client.getEntries({
+      'content_type': 'blogPost'
+    }).then((response) => {
+      console.log('Entries: ', response.items)
+
+      setContentfulPosts(response.items)
+    }).catch(console.error)
+  }, []);
 
   return (
     <PageLayout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
+
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+        {contentfulPosts.length ? contentfulPosts.map(post => {
+          const title = post.fields.title || 'Titolo vuoto'
 
           return (
-            <li key={post.fields.slug}>
+            <li key={post.sys.id}>
               <article
                 className="post-list-item"
                 itemScope
@@ -40,16 +48,16 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <a href={`/contentful-post/${post.sys.id}`}>
                       <span itemProp="headline">{title}</span>
-                    </Link>
+                      </a>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small><Moment format="DD/MM/YYYY" date={post.fields.publishDate} /></small>
                 </header>
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post.fields.description || '',
                     }}
                     itemProp="description"
                   />
@@ -57,7 +65,7 @@ const BlogIndex = ({ data, location }) => {
               </article>
             </li>
           )
-        })}
+        }): null }
       </ol>
     </PageLayout>
   )

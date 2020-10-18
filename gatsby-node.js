@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const contentfulPost = path.resolve(`./src/templates/contentful-post.js`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -58,6 +59,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+  
+  createPage({
+    path: 'contentful-post/:postId',
+    matchPath: '/contentful-post/:postId',
+    component: contentfulPost,
+    context: {
+      slug: 'contentful-post',
+    },
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

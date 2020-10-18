@@ -403,3 +403,14 @@ a:focus {
     100% { transform: rotate(360deg); }
 }
 
+
+.t-webar__linkButton {
+  border: none;
+  background: none;
+  color: dodgerblue;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
