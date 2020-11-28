@@ -11,7 +11,7 @@ const ContactPage = ({ data, location }) => {
 
   return (
     <PageLayout location={location} title={siteTitle}>
-      <SEO title="Contact" />
+      <SEO title="StaseraInTV Privacy" />
       <p>{staseraInTVPrivacyText}</p>
     </PageLayout>
   )
