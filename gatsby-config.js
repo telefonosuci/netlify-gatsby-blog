@@ -25,7 +25,8 @@ module.exports = {
       },
     ],
     textContents: {
-      contactText: "Ciao! Per metterti con contatto con noi e richiedere una valutazione senza impegno delle tue necessità, compila il modulo qua sotto e verrai ricontattato al più presto."
+      contactText: "Ciao! Per metterti con contatto con noi e richiedere una valutazione senza impegno delle tue necessità, compila il modulo qua sotto e verrai ricontattato al più presto.",
+      staseraInTVPrivacyText: "Note della privacy"
     },
   },
   plugins: [
