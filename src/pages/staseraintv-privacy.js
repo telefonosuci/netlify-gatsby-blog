@@ -7,12 +7,12 @@ import SEO from "../components/seo"
 const ContactPage = ({ data, location }) => {
 
   const siteTitle = data.site.siteMetadata.title
-  const contactText = data.site.siteMetadata.textContents.contactText
+  const staseraInTVPrivacyText = data.site.siteMetadata.textContents.staseraInTVPrivacyText
 
   return (
     <PageLayout location={location} title={siteTitle}>
       <SEO title="Contact" />
-      <p>{contactText}</p>
+      <p>{staseraInTVPrivacyText}</p>
     </PageLayout>
   )
 }
